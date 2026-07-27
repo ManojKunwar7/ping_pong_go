@@ -16,8 +16,14 @@ func LoadConfig() *Config {
 	viper.SetConfigName(".env")
 	viper.SetConfigType("env")
 
+	if err := viper.ReadInConfig(); err != nil {
+		log.Println("NO .env file found, using system variables")
+	}
+
+	viper.AutomaticEnv()
+
 	var config Config
-	if err := viper.Unmarshal(config); err != nil {
+	if err := viper.Unmarshal(&config); err != nil {
 		log.Println("NO .env file found, using system variables")
 	}
 
