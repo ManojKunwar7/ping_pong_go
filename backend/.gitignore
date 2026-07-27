@@ -1,0 +1,53 @@
+# Binary files (compiled outputs)
+# ----------------------------------
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+# Common Go binary build output names
+bin/
+out/
+dist/
+server
+main
+
+# Testing & Coverage
+# ----------------------------------
+*.test
+*.out
+coverage.txt
+coverage.html
+
+# Dependency directories
+# ----------------------------------
+# Only uncomment vendor/ if you do NOT want to commit your vendored dependencies
+# vendor/
+
+# Environment Variables & Secrets
+# ----------------------------------
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+
+# IDEs and Editors
+# ----------------------------------
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Operating System Files
+# ----------------------------------
+.DS_Store
+Thumbs.db
+
+# Optional: Log files
+# ----------------------------------
+*.log
+logs/
