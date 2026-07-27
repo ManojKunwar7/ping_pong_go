@@ -8,6 +8,7 @@
 # Common Go binary build output names
 bin/
 out/
+output/
 dist/
 server
 main
@@ -51,3 +52,5 @@ Thumbs.db
 # ----------------------------------
 *.log
 logs/
+
+
