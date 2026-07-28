@@ -14,6 +14,7 @@ backend/
 │   ├── handler/
 │   │   ├── game_handler.go # Handles WebSocket routes / upgrades
 │   │   └── health.go     # Handles basic REST routes (like /health)
+│   │   └── root.go       # Consist all the routes
 │   ├── middleware/
 │   │   └── cors.go       # Custom middleware (CORS handling)
 │   ├── repository/
