@@ -15,6 +15,9 @@ func (rh *RootHandler) SetUpRouter(router *gin.Engine) {
 	router.Use(middleware.CORS())
 
 	healthHandler := NewHealthHandler()
+	gameHandler := NewGameHandler()
+	// ! Register Routes
+	gameHandler.RegisterRoutes(router)
 	healthHandler.RegisterRoutes(router)
 
 }
