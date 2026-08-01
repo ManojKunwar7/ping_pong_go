@@ -11,9 +11,9 @@ type Config struct {
 	GinMode string `mapstructure:"GIN_MODE"`
 }
 
-func LoadConfig() *Config {
+func LoadConfig(path string) *Config {
 	viper.AddConfigPath(".")
-	viper.SetConfigName(".env")
+	viper.SetConfigName(path)
 	viper.SetConfigType("env")
 
 	if err := viper.ReadInConfig(); err != nil {

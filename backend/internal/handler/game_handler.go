@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -46,5 +47,41 @@ func (gh *GameHandler) ServeWSController(c *gin.Context) {
 	playerID := c.Query("id")
 	if playerID == "" {
 		playerID = "player_" + strconv.Itoa(int(time.Now().UnixMilli()))
+	}
+
+	fmt.Printf("connection %v", conn)
+
+	go readPump(conn)
+	go writePump(conn)
+}
+
+func readPump(conn *websocket.Conn) {
+	defer func() {
+		// Close connection
+		conn.Close()
+	}()
+
+	for {
+		msgType, message, err := conn.ReadMessage()
+
+		if err != nil {
+			fmt.Printf("Error while reading message %v", err)
+			break
+		}
+
+		fmt.Println("MessageType ", msgType)
+		fmt.Println("Message ", string(message))
+	}
+
+}
+
+func writePump(conn *websocket.Conn) {
+	defer func() {
+		// Close connection
+		conn.Close()
+	}()
+
+	for {
+
 	}
 }
